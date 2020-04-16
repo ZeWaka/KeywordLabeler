@@ -1,0 +1,35 @@
+{
+  "name": "probot-labeler",
+  "version": "0.0.1",
+  "description": "A GitHub bot to label issues and PRs automatically based on keywords in the title and body.",
+  "author": "ZeWaka <zewakagamer@gmail.com>",
+  "license": "ISC",
+  "repository": "https://github.com/zewaka/probot-labeler.git",
+  "homepage": "https://github.com/zewaka/probot-labeler",
+  "main": "app.js",
+  "engines": {
+    "node": "10.15.3",
+    "npm": ">= 4.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/zewaka/probot-labeler/issues"
+  },
+  "keywords": [
+    "probot",
+    "github-apps",
+    "github",
+    "automation",
+    "labeling"
+  ],
+  "scripts": {
+    "start": "probot run ./app.js"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  },
+  "dependencies": {
+    "probot": "^9.11.3"
+  }
+}
