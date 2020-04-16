@@ -1,8 +1,6 @@
-# probot-labeler
+# TriggeredLabeler
 
 > A GitHub bot to label issues and PRs automatically based on title and body. Built with [probot](https://github.com/probot/probot).
-
-![Screenshot](assets/screenshot.png)
 
 ### Installation
 After installation, create `.github/labeler.yml` in the default branch to enable it:
