@@ -3,7 +3,7 @@
 > A GitHub bot to label issues and PRs automatically based on keywords in the title and body. Built with [probot](https://github.com/probot/probot) and [glitch](https://glitch.com).
 
 ### Installation
-After installation, create a `.github/labeler.yml` file in the default branch to enable it.
+After installation, create a `.github/keylabeler.yml` file in the default branch to enable it.
 Example configuration:
 ```yml
 # Number of labels to fetch (optional). Defaults to 20.
