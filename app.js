@@ -21,7 +21,7 @@ module.exports = robot => {
       
       let labelsToAdd = []
       
-      const ourIssueOrPR = context.payload.issue
+      var ourIssueOrPR = context.payload.issue
       if (ourIssueOrPR == null) ourIssueOrPR = context.payload.pull_request //If there's no issue field, then it's a pull request trigger
 
       for (let token in config.labelMappings) {
