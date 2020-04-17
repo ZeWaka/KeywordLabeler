@@ -14,10 +14,9 @@ module.exports = robot => {
       });
 
       if (!config) {
-        console.log('Config file named "keylabeler.yml" not found. Exiting.');
-        return;
+        console.log('Config file named "keylabeler.yml" not found. Exiting.')
+        return
       }
-
       
       let labelsToAdd = []
       
@@ -26,7 +25,7 @@ module.exports = robot => {
 
       for (let token in config.labelMappings) {
         if ((config.matchTitle ? ourIssueOrPR.title.includes(token) : false) || (config.matchBody ? ourIssueOrPR.body.includes(token) : false)) {
-          labelsToAdd.push(config.labelMappings[token]);
+          labelsToAdd.push(config.labelMappings[token])
         }
       }
 
