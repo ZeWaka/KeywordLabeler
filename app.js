@@ -18,12 +18,14 @@ module.exports = robot => {
         return;
       }
 
-      //All PRs are actually issues on the GitHub backend
-      const ourIssue = context.payload.issue
+      
       let labelsToAdd = []
+      
+      const ourIssueOrPR = context.payload.issue
+      if (ourIssueOrPR == null) ourIssueOrPR = context.payload.pull_request //If there's no issue field, then it's a pull request trigger
 
       for (let token in config.labelMappings) {
-        if ((config.matchTitle ? ourIssue.title.includes(token) : false) || (config.matchBody ? ourIssue.body.includes(token) : false)) {
+        if ((config.matchTitle ? ourIssueOrPR.title.includes(token) : false) || (config.matchBody ? ourIssueOrPR.body.includes(token) : false)) {
           labelsToAdd.push(config.labelMappings[token]);
         }
       }
