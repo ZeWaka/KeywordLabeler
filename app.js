@@ -14,9 +14,12 @@ module.exports = robot => {
       });
 
       if (!config) {
-        context.log('Config file named "keylabeler.yml" not found. Exiting.');
+        robot.log('Config file named "keylabeler.yml" not found. Exiting.');
         return;
       }
+      
+      console.log('Successfully loaded config.')
+      robot.log.debug({ data: 'here' }, 'End-line specs on the rotary girder')
 
       //All PRs are actually issues on the GitHub backend
       const ourIssue = context.payload.issue;
