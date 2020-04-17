@@ -1,30 +1,37 @@
-'use strict';
+module.exports = robot => {
+  robot.on(
+    [
+      "issues.opened",
+      "issues.reopened",
+      "pull_request.opened",
+      "pull_request.reopened"
+    ],
+    async context => {
+      const config = await context.config("labeler.yml", {
+        numLabels: 20,
+        matchTitle: true,
+        matchBody: true
+      });
 
-module.exports = app => {
-  app.on('issues.opened','issues.reopened','pull_request.opened', 'pull_request.reopened', async context => {
+      if (!config) {
+        context.log('Config file named "labeler.yml" not found. Exiting.');
+        return;
+      }
 
-  context.log({ event: context.event, action: context.payload.action })
+      //All PRs are actually issues on the GitHub backend
+      const ourIssue = context.payload.issue;
 
-	const config = await context.config('labeler.yml', { numLabels: 20, matchBody: true });
+      let labelsToAdd = [];
 
-	if (!config) {
-		context.log("Config file named \"labeler.yml\" not found. Exiting.");
-		return;
-	}
+      for (let token in config.labelMappings) {
+        if ((config.matchTitle ? ourIssue.title.includes(token) : false) || (config.matchBody ? ourIssue.body.includes(token) : false)) {
+          labelsToAdd.push(config.labelMappings[token]);
+        }
+      }
 
-	//All PRs are actually issues on the GitHub backend
-	const ourIssueOrPR = await context.github.issues.get(context.issue({ issue_number: context.payload.issue.number }));
-
-	let labelsToAdd = [];
-
-	for (let token in config.labelMappings) {
-		if (ourIssueOrPR.data.title.includes(token) || (config.matchBody ? ourIssueOrPR.data.body.includes(token) : false)) {
-			labelsToAdd.push(config.labelMappings[token]);
-		}
-	}
-
-	return context.github.issues.addLabels(context.issue({ labels: labelsToAdd }))
-
-    
-  })
-}
+      return context.github.issues.addLabels(
+        context.issue({ labels: labelsToAdd })
+      );
+    }
+  );
+};
