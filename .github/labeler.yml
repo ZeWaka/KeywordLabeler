@@ -1,0 +1,13 @@
+# Number of labels to fetch (optional). Defaults to 20.
+numLabels: 40
+
+# Determines if we search the title (optional). Defaults to true.
+matchTitle: true
+
+# Determines if we search the body (optional). Defaults to true.
+matchBody: true
+
+# Explicit keyword mappings to labels. Form of match:label. Required.
+labelMappings:
+    [ENHANCEMENT]: enhancement
+    [GOODFIRST]: good first issue
