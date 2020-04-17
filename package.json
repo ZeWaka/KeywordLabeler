@@ -1,18 +1,18 @@
 {
-  "name": "TriggeredLabeler",
-  "version": "0.1.0",
+  "name": "KeywordLabeler",
+  "version": "1.0.0",
   "description": "A GitHub bot to label issues and PRs automatically based on keywords in the title and body.",
   "author": "ZeWaka <zewakagamer@gmail.com>",
   "license": "ISC",
-  "repository": "https://github.com/ZeWaka/TriggeredLabeler.git",
-  "homepage": "https://github.com/ZeWaka/TriggeredLabeler",
+  "repository": "https://github.com/ZeWaka/KeywordLabeler.git",
+  "homepage": "https://github.com/ZeWaka/KeywordLabeler",
   "main": "app.js",
   "engines": {
     "node": "10.15.3",
     "npm": ">= 4.0.0"
   },
   "bugs": {
-    "url": "https://github.com/ZeWaka/TriggeredLabeler/issues"
+    "url": "https://github.com/ZeWaka/KeywordLabeler/issues"
   },
   "keywords": [
     "probot",
