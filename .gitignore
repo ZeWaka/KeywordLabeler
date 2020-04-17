@@ -1,17 +1,8 @@
-# package directories
+# package directory
 node_modules
-jspm_packages
 
-# Serverless directories
-.serverless
-
-# Env files
+# .env file for glitch
 .env
-.envrc
-env.yml
 
-# Private key files
+# private key file for GitHub apps
 *.pem
-
-# Zip files
-*.zip
