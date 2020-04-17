@@ -25,7 +25,4 @@ labelMappings:
 Read the [CONTRIBUTING](CONTRIBUTING.md) guide for information.
 
 ### License
-This is a fork of [issuelabeler](https://github.com/riyadhalnur/issuelabeler) by Riyadh Al Nur.
-It incorporates work by [Rory Quinn](https://github.com/GetSwift/pr-auto-labeler).
-
 Licensed under ISC. See [LICENSE](LICENSE) for more information.
