@@ -14,17 +14,13 @@ module.exports = robot => {
       });
 
       if (!config) {
-        robot.log('Config file named "keylabeler.yml" not found. Exiting.');
+        console.log('Config file named "keylabeler.yml" not found. Exiting.');
         return;
       }
-      
-      console.log('Successfully loaded config.')
-      robot.log.debug({ data: 'here' }, 'End-line specs on the rotary girder')
 
       //All PRs are actually issues on the GitHub backend
-      const ourIssue = context.payload.issue;
-
-      let labelsToAdd = [];
+      const ourIssue = context.payload.issue
+      let labelsToAdd = []
 
       for (let token in config.labelMappings) {
         if ((config.matchTitle ? ourIssue.title.includes(token) : false) || (config.matchBody ? ourIssue.body.includes(token) : false)) {
