@@ -7,16 +7,19 @@ module.exports = robot => {
       "pull_request.reopened"
     ],
     async context => {
-      const config = await context.config("labeler.yml", {
+      const config = await context.config("keylabeler.yml", {
         numLabels: 20,
         matchTitle: true,
         matchBody: true
       });
 
       if (!config) {
-        context.log('Config file named "labeler.yml" not found. Exiting.');
+        robot.log('Config file named "keylabeler.yml" not found. Exiting.');
         return;
       }
+      
+      console.log('Successfully loaded config.')
+      robot.log.debug({ data: 'here' }, 'End-line specs on the rotary girder')
 
       //All PRs are actually issues on the GitHub backend
       const ourIssue = context.payload.issue;
