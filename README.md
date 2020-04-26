@@ -17,7 +17,7 @@ matchBody: true
 
 # Explicit keyword mappings to labels. Form of match:label. Required.
 labelMappings:
-    [WIP]: WIP
+    "[WIP]": WIP
     hooks: documentation 
 ```
 
