@@ -30,6 +30,6 @@
     ]
   },
   "dependencies": {
-    "probot": "^9.11.3"
+    "probot": "^9.11.5"
   }
 }
