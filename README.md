@@ -2,7 +2,7 @@
 
 > A GitHub bot to label issues and PRs automatically based on keywords in the title and body. Built with [probot](https://github.com/probot/probot) and [glitch](https://glitch.com).
 
-Current version: `1.3.0`
+Current version: `1.3.1`
 
 ## Installation
 
@@ -24,8 +24,8 @@ caseSensitive: false
 
 # Explicit keyword mappings to labels. Form of match:label. Required.
 labelMappings:
-    "[WIP]": WIP
-    hooks: documentation
+  "[WIP]": WIP
+  hooks: documentation
 ```
 
 ## Contributing
