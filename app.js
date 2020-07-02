@@ -12,7 +12,8 @@ module.exports = robot => {
       const config = await context.config("keylabeler.yml", {
         numLabels: 20,
         matchTitle: true,
-        matchBody: true
+        matchBody: true,
+        caseSensitive: true
       });
 
       if (!config) {
@@ -23,20 +24,28 @@ module.exports = robot => {
       let labelsToAdd = [];
 
       var ourIssueOrPR = context.payload.issue;
-      if (ourIssueOrPR == null) ourIssueOrPR = context.payload.pull_request; //If there's no issue field, then it's a pull request trigger 😎
+			if (ourIssueOrPR == null) ourIssueOrPR = context.payload.pull_request; //If there's no issue field, then it's a pull request trigger 😎
 
-      for (let token in config.labelMappings) {
-        if (
-          (config.matchTitle ? ourIssueOrPR.title.includes(token) : false) ||
-          (config.matchBody ? ourIssueOrPR.body.includes(token) : false)
-        ) {
+			let fetchedTitle = ourIssueOrPR.title
+			let fetchedBody = ourIssueOrPR.body
+
+			for (let token in config.labelMappings)
+			{
+
+				if (config.caseSensitive === false)
+				{
+					token = toLowerCase(token)
+					fetchedTitle = toLowerCase(fetchedTitle)
+					fetchedBody = toLowerCase(fetchedBody)
+				}
+
+        if ((config.matchTitle ? fetchedTitle.includes(token) : false) ||(config.matchBody ? fetchedBody.includes(token) : false))
+				{
           labelsToAdd.push(config.labelMappings[token]);
         }
       }
 
-      return context.github.issues.addLabels(
-        context.issue({ labels: labelsToAdd })
-      );
+      return context.github.issues.addLabels(context.issue({ labels: labelsToAdd }));
     }
   );
 };
