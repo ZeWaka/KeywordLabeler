@@ -16,7 +16,8 @@ module.exports = robot => {
         caseSensitive: true
       });
 
-      if (!config) {
+			if (!config)
+			{
         console.log('Config file named "keylabeler.yml" not found. Exiting.');
         return;
       }
@@ -29,14 +30,18 @@ module.exports = robot => {
 			let fetchedTitle = ourIssueOrPR.title;
 			let fetchedBody = ourIssueOrPR.body;
 
+			if (config.caseSensitive === false)
+			{
+				fetchedTitle = fetchedTitle.toLowerCase()
+				fetchedBody = fetchedBody.toLowerCase()
+			}
+
 			for (let token in config.labelMappings)
 			{
 
 				if (config.caseSensitive === false)
 				{
 					token = token.toLowerCase()
-					fetchedTitle = fetchedTitle.toLowerCase()
-					fetchedBody = fetchedBody.toLowerCase()
 				}
 
         if ((config.matchTitle ? fetchedTitle.includes(token) : false) || (config.matchBody ? fetchedBody.includes(token) : false))
