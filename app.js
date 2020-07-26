@@ -10,7 +10,6 @@ module.exports = robot => {
     ],
     async context => {
       const config = await context.config("keylabeler.yml", {
-        numLabels: 20,
         matchTitle: true,
         matchBody: true,
         caseSensitive: true
