@@ -15,8 +15,7 @@ module.exports = robot => {
         caseSensitive: true
       });
 
-			if (!config)
-			{
+      if (!config) {
         console.log('Config file named "keylabeler.yml" not found. Exiting.');
         return;
       }
@@ -24,32 +23,34 @@ module.exports = robot => {
       let labelsToAdd = [];
 
       var ourIssueOrPR = context.payload.issue;
-			if (ourIssueOrPR == null) ourIssueOrPR = context.payload.pull_request; //If there's no issue field, then it's a pull request trigger 😎
+      if (ourIssueOrPR == null) ourIssueOrPR = context.payload.pull_request; //If there's no issue field, then it's a pull request trigger 😎
 
-			let fetchedTitle = ourIssueOrPR.title;
-			let fetchedBody = ourIssueOrPR.body;
+      let fetchedTitle = ourIssueOrPR.title.slice();
+      let fetchedBody = ourIssueOrPR.body.slice();
 
-			if (config.caseSensitive === false)
-			{
-				fetchedTitle = fetchedTitle.toLowerCase()
-				fetchedBody = fetchedBody.toLowerCase()
-			}
+      if (config.caseSensitive === false) {
+        fetchedTitle = fetchedTitle.toLowerCase();
+        fetchedBody = fetchedBody.toLowerCase();
+      }
 
-			for (let token in config.labelMappings)
-			{
+      for (let token in config.labelMappings) {
+        let tokenName = token.slice();
 
-				if (config.caseSensitive === false)
-				{
-					token = token.toLowerCase()
-				}
+        if (config.caseSensitive === false) {
+          tokenName = tokenName.toLowerCase();
+        }
 
-        if ((config.matchTitle ? fetchedTitle.includes(token) : false) || (config.matchBody ? fetchedBody.includes(token) : false))
-				{
+        if (
+          (config.matchTitle ? fetchedTitle.includes(tokenName) : false) ||
+          (config.matchBody ? fetchedBody.includes(tokenName) : false)
+        ) {
           labelsToAdd.push(config.labelMappings[token]);
         }
       }
 
-      return context.github.issues.addLabels(context.issue({ labels: labelsToAdd }));
+      return context.github.issues.addLabels(
+        context.issue({ labels: labelsToAdd })
+      );
     }
   );
 };
