@@ -1,6 +1,6 @@
 {
   "name": "KeywordLabeler",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "A GitHub bot to label issues and PRs automatically based on keywords in the title and body.",
   "author": "ZeWaka <zewakagamer@gmail.com>",
   "license": "ISC",
@@ -30,6 +30,6 @@
     ]
   },
   "dependencies": {
-    "probot": "^11.0.1"
+    "probot": "^10.19.0"
   }
 }
