@@ -1,5 +1,5 @@
-module.exports = robot => {
-  robot.on(
+module.exports = (app, { getRouter }) => {
+  app.on(
     [
       "issues.opened",
       "issues.reopened",
@@ -48,7 +48,7 @@ module.exports = robot => {
         }
       }
 
-      return context.github.issues.addLabels(
+      return context.octokit.issues.addLabels(
         context.issue({ labels: labelsToAdd })
       );
     }
