@@ -4,6 +4,8 @@
 
 Current version: `1.4.2`
 
+Marketplace link: https://github.com/marketplace/keywordlabeler
+
 ## Installation
 
 After installation, create a `.github/keylabeler.yml` file in the default branch to enable it.
