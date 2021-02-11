@@ -1,6 +1,6 @@
 {
   "name": "KeywordLabeler",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A GitHub bot to label issues and PRs automatically based on keywords in the title and body.",
   "author": "ZeWaka <zewakagamer@gmail.com>",
   "license": "ISC",
@@ -8,8 +8,8 @@
   "homepage": "https://github.com/ZeWaka/KeywordLabeler",
   "main": "app.js",
   "engines": {
-    "node": "12.18.3",
-    "npm": "^6.14.11"
+    "node": "^14.12.0",
+    "npm": "^7.5.3"
   },
   "bugs": {
     "url": "https://github.com/ZeWaka/KeywordLabeler/issues"
@@ -30,6 +30,6 @@
     ]
   },
   "dependencies": {
-    "probot": "^11.0.1"
+    "probot": "^11.0.6"
   }
 }
