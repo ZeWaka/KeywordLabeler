@@ -1,35 +1,35 @@
 {
-  "name": "KeywordLabeler",
-  "version": "1.5.2",
-  "description": "A GitHub bot to label issues and PRs automatically based on keywords in the title and body.",
-  "author": "ZeWaka <zewakagamer@gmail.com>",
-  "license": "ISC",
-  "repository": "https://github.com/ZeWaka/KeywordLabeler.git",
-  "homepage": "https://github.com/ZeWaka/KeywordLabeler",
-  "main": "app.js",
-  "engines": {
-    "node": "^14.12.0",
-    "npm": "^7.5.3"
-  },
-  "bugs": {
-    "url": "https://github.com/ZeWaka/KeywordLabeler/issues"
-  },
-  "keywords": [
-    "probot",
-    "github-apps",
-    "github",
-    "automation",
-    "labeling"
-  ],
-  "scripts": {
-    "start": "probot run ./app.js"
-  },
-  "standard": {
-    "env": [
-      "mocha"
-    ]
-  },
-  "dependencies": {
-    "probot": "^11.4"
-  }
+	"name": "KeywordLabeler",
+	"version": "1.5.3",
+	"description": "A GitHub bot to label issues and PRs automatically based on keywords in the title and body.",
+	"author": "ZeWaka <zewakagamer@gmail.com>",
+	"license": "ISC",
+	"repository": "https://github.com/ZeWaka/KeywordLabeler.git",
+	"homepage": "https://github.com/ZeWaka/KeywordLabeler",
+	"main": "app.js",
+	"engines": {
+		"node": "^16.12.0",
+		"npm": "^7.20.6"
+	},
+	"bugs": {
+		"url": "https://github.com/ZeWaka/KeywordLabeler/issues"
+	},
+	"keywords": [
+		"probot",
+		"github-apps",
+		"github",
+		"automation",
+		"labeling"
+	],
+	"scripts": {
+		"start": "probot run ./app.js"
+	},
+	"standard": {
+		"env": [
+			"mocha"
+		]
+	},
+	"dependencies": {
+		"probot": "^12.1"
+	}
 }
