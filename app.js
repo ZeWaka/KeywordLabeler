@@ -12,7 +12,8 @@ module.exports = (app, { getRouter }) => {
       const config = await context.config("keylabeler.yml", {
         matchTitle: true,
         matchBody: true,
-        caseSensitive: true
+        caseSensitive: true,
+        useRegex: false,
       });
 
       if (!config) {
@@ -40,10 +41,15 @@ module.exports = (app, { getRouter }) => {
           tokenName = tokenName.toLowerCase();
         }
 
-        if (
-          (config.matchTitle ? fetchedTitle.includes(tokenName) : false) ||
-          (config.matchBody ? fetchedBody.includes(tokenName) : false)
-        ) {
+        if ((
+          config.matchTitle &&
+          (config.useRegex && fetchedTitle.match(tokenName)
+            || !config.useRegex && fetchedTitle.includes(tokenName))
+        ) || (
+          config.matchBody &&
+          (config.useRegex && fetchedBody.match(tokenName)
+            || !config.useRegex && fetchedBody.includes(tokenName))
+        )) {
           labelsToAdd.push(config.labelMappings[token]);
         }
       }
