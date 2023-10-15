@@ -21,6 +21,11 @@ matchBody: true
 # Determines if label matching is case sensitive (optional). Defaults to true.
 caseSensitive: false
 
+# By default, the labeler looks for a specific string phrase.
+# Therefore, this can create false positives like "fix" being found in "fixture".
+# You can use regex instead to reduce those false positives. Defaults to false.
+useRegex: false
+
 # Explicit keyword mappings to labels. Form of match:label. Required.
 labelMappings:
   "[WIP]": WIP
