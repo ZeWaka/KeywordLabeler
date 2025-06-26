@@ -1,5 +1,8 @@
 # KeywordLabeler
 
+
+## NOTE: This GitHub App is depreceated/inactive, since the infrastructure operating this is no longer functional, and you can easily accomplish this with just using GitHub Actions functionality.
+
 > A GitHub bot to label issues and PRs automatically based on keywords in the title and body. Built with [probot](https://github.com/probot/probot) and [glitch](https://glitch.com).
 
 Current version: `1.6.0`
